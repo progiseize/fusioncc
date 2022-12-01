@@ -1,0 +1,30 @@
+# <FusionCC>
+# Copyright (C) 2022 ProgiSeize <contact@progiseize.fr>
+
+# This program and files/directory inner it is free software: you can 
+# redistribute it and/or modify it under the terms of the 
+# GNU Affero General Public License (AGPL) as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU AGPL for more details.
+# You should have received a copy of the GNU AGPL
+# along with this program.  If not, see <https://www.gnu.org/licenses/agpl-3.0.html>.
+
+
+# Dolibarr language file - fr_FR - fusioncc
+
+Module300310Name = FusionCC
+
+fusioncc_tab_fusion = Fusion
+fusioncc_fusion = Rechercher et fusionner
+
+fusioncc_execute_title = Fusionner et supprimer les comptes comptables en doublons
+fusioncc_execute_desc = Cliquez sur le bouton afin de générer une recherche des doublons afin de les fusionner.
+fusioncc_execute_norights = Vous ne disposez pas des droits nécessaires pour effectuer une fusion des comptes comptables.
+
+fusioncc_results_nodouble = Aucun doublon trouvé
+fusioncc_results_nbdouble = %s doublons supprimés
+fusioncc_results_error = Une erreur est survenue. Opération annulée.
