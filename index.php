@@ -85,7 +85,6 @@ function separer_doublons($array, $key) {
 ********************************************************************/
 $action = GETPOST('action');
 
-
 /*******************************************************************
 * ACTIONS
 ********************************************************************/
@@ -100,12 +99,11 @@ if($action == 'fusion_accounting' && $user->rights->fusioncc->fusionner):
 
 
 	// On récupère tout les rowid de "accounting_account"
-	$sql= "SELECT rowid FROM ".MAIN_DB_PREFIX."accounting_account";
+	$sql= "SELECT rowid FROM ".MAIN_DB_PREFIX."accounting_account WHERE entity = '".$conf->entity."'";
 	$results_accounts = $db->query($sql);
 
 	// SI IL Y A DES ENTREES
 	if($results_accounts): 
-
 
 		$error = 0;
 		$nb_doublon = 0;

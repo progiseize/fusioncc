@@ -3,6 +3,9 @@
 [comment]: <> (TODO)
 
 ***
+### 1.3 (29/09/2022)
+* NEW - Compatible multi-société
+
 ### 1.2 (29/09/2022)
 * MAJ - Modification permissions & numéro module, pensez à verifier les droits utilisateurs
 
