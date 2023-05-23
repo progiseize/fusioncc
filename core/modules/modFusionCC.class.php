@@ -53,7 +53,7 @@ class modFusionCC extends DolibarrModules
         // It is used to group modules by family in module setup page
         $this->family = "Progiseize";
         // Module position in the family
-        $this->module_position = 140;
+        $this->module_position = '05';
         // Gives the possibility to the module, to provide his own family info and position of this family (Overwrite $this->family and $this->module_position. Avoid this)
         //$this->familyinfo = array('myownfamily' => array('position' => '001', 'label' => $langs->trans("MyOwnFamily")));
 
@@ -67,7 +67,7 @@ class modFusionCC extends DolibarrModules
         $this->editor_url = 'https://progiseize.fr';
         
         // Possible values for version are: 'development', 'experimental', 'dolibarr', 'dolibarr_deprecated' or a version string like 'x.y.z'
-        $this->version = '1.3';
+        $this->version = '1.3.1';
         $this->url_last_version = "https://progiseize.fr/modules_info/".get_class($this)."_lastversion.txt";
         // Key used in llx_const table to save module status enabled/disabled (where MYMODULE is value of property name of module in uppercase)
         $this->const_name = 'MAIN_MODULE_'.strtoupper($this->name);
@@ -75,7 +75,7 @@ class modFusionCC extends DolibarrModules
         // If file is in theme/yourtheme/img directory under name object_pictovalue.png, use this->picto='pictovalue'
         // If file is in module/img directory under name object_pictovalue.png, use this->picto='pictovalue@module'
         $version = explode('.',DOL_VERSION);
-        if($version[0] > 16): $this->picto='fa-search_search_fas_#263c5c';
+        if($version[0] > 16): $this->picto='fa-code-branch_fas_#263c5c';
         else: $this->picto='technic';
         endif;
 
@@ -98,7 +98,21 @@ class modFusionCC extends DolibarrModules
         //                          'dir' => array('output' => 'othermodulename'),      // To force the default directories names
         //                          'workflow' => array('WORKFLOW_MODULE1_YOURACTIONTYPE_MODULE2'=>array('enabled'=>'! empty($conf->module1->enabled) && ! empty($conf->module2->enabled)', 'picto'=>'yourpicto@mymodule')) // Set here all workflow context managed by module
         //                        );
-        $this->module_parts = array();
+        $this->module_parts = array(
+            'triggers' => 0,
+            'login' => 0,
+            'substitutions' => 0,
+            'menus' => 0,
+            'theme' => 0,
+            'tpl' => 0,
+            'barcode' => 0, 
+            'models' => 0,
+            'css' => array(),
+            'js' => array(),
+            'hooks' => array(),
+            'dir' => array(),
+            'workflow' => array(),
+        );
 
         // Data directories to create when module is enabled.
         // Example: this->dirs = array("/mymodule/temp");
@@ -222,7 +236,10 @@ class modFusionCC extends DolibarrModules
             'titre'=> $this->name,
             'mainmenu'=>'progiseize',
             'leftmenu'=> $this->rights_class,
-            'url'=>'/fusioncc/index.php', 'langs'=>'progiseize@progiseize', 'position'=> $this->module_position, 'enabled'=>'1', 'perms'=>'1','target'=>'', 'user'=>2);
+            'url'=>'/fusioncc/index.php', 'langs'=>'progiseize@progiseize', 'position'=> $this->module_position,
+            'enabled'=>'1', 'perms'=>'1','target'=>'', 'user'=>2,
+            'prefix' => '<span class="fas fa-code-branch" style="color: #6c6aa8;margin-right:3px;"></span> '
+        );
         $r++;
 
         /*--------------- */
@@ -239,7 +256,8 @@ class modFusionCC extends DolibarrModules
             'enabled'=> '$conf->fusioncc->enabled',
             'perms'=> '$user->rights->fusioncc->fusionner',
             'target'=>'',
-            'user'=>2
+            'user'=>2,
+            'prefix' => '<span class="fas fa-code-branch" style="color: #6c6aa8;margin-right:3px;"></span> '
         );
         $r++;
 

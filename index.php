@@ -89,7 +89,7 @@ $action = GETPOST('action');
 * ACTIONS
 ********************************************************************/
 
-if($action == 'fusion_accounting' && $user->rights->fusioncc->fusionner):
+if($action == 'fusion_accounting' && $user->rights->fusioncc->fusionner && GETPOST('token') == $_SESSION['token']):
 
 	$db->begin();
 
@@ -269,6 +269,7 @@ llxHeader('',$langs->trans('Module300310Name'),''); ?>
                     <td class="right pgsz-optiontable-field ">
                     	<form enctype="multipart/form-data" action="<?php print $_SERVER["PHP_SELF"]; ?>" method="post">
 							<input type="hidden" name="action" value="fusion_accounting">
+							<input type="hidden" name="token" value="<?php echo newtoken(); ?>">
 							<input type="submit" name="" value="<?php echo $langs->trans('fusioncc_fusion'); ?>">
 						</form>
                     </td>
