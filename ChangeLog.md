@@ -3,6 +3,9 @@
 [comment]: <> (TODO)
 
 ***
+### 1.3.2
+* FIX - Remove $this->url_last_version in ModDescriptor
+
 ### 1.3.1 (23/05/2023)
 * NEW - Compatible MAIN_SECURITY_CSRF_TOKEN
 
